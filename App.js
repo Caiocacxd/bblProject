@@ -1,5 +1,5 @@
 import { StyleSheet} from "react-native";
-import Title from "./src/components/Title";
+import Leitura from "./src/components/Leitura";
 import MenuHome from "./src/components/MenuHome";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,7 +10,7 @@ function MenuScreenStack() {
   return (
     <MenuStack.Navigator>
       <MenuStack.Screen name="Menu" component={MenuHome} />
-      <MenuStack.Screen name="Ler" component={Title} />
+      <MenuStack.Screen name="Leitura" component={Leitura} />
     </MenuStack.Navigator>
   );
 }
