@@ -53,7 +53,7 @@ const BibliaConnect = () => {
     { name: '1 Coríntios (1co)', id: '1co' },
     // Adicione os demais livros aqui
   ]);  
-  const [selectedBook, setSelectedBook] = useState('Escolha um Livro');
+  const [selectedBook, setSelectedBook] = useState('');
   const [selectedChapter, setSelectedChapter] = useState('1');
   const [selectedVerseNumber, setSelectedVerseNumber] = useState('');
   const [isClicked, setIsClicked] = useState(false);
@@ -81,12 +81,12 @@ const BibliaConnect = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>BíbliaConnect</Text>
-      <Text style={styles.label}>Livro</Text>
+      <Text style={styles.label}>Lívro</Text>
       <TouchableOpacity
         style={styles.picker}
         onPress={() => {setIsClicked(!isClicked);}}
       >
-        <TextInput style={styles.dropText} placeholder={selectedBook} onChangeText={(text) => setSelectedBook(text)}></TextInput>
+        <TextInput style={styles.dropText} placeholder="Escolha um Livro" value={selectedBook} onChangeText={(text) => setSelectedBook(text)}></TextInput>
         {isClicked? 
         <Image source={require('../../../assets/dropup.png')} style = {styles.icon}></Image> 
         : 
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   dropText: {
-    width:"80%",
+    width:"45%",
     height: 30,
   },
   input: {
