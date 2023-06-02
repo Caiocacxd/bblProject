@@ -5,52 +5,52 @@ const BibliaConnect = () => {
   const [verse, setVerse] = useState('');
   const [reflection, setReflection] = useState('');
   const [books, setBooks] = useState([
-    { name: 'Gênesis (gen)', id: 'gen' },
-    { name: 'Êxodo (exo)', id: 'exo' },
-    { name: 'Levítico (lev)', id: 'lev' },
-    { name: 'Números (num)', id: 'num' },
-    { name: 'Deuteronômio (deu)', id: 'deu' },
-    { name: 'Josué (jos)', id: 'jos' },
-    { name: 'Juízes (jdg)', id: 'jdg' },
-    { name: 'Rute (rut)', id: 'rut' },
-    { name: '1 Samuel (1sa)', id: '1sa' },
-    { name: '2 Samuel (2sa)', id: '2sa' },
-    { name: '1 Reis (1ki)', id: '1ki' },
-    { name: '2 Reis (2ki)', id: '2ki' },
-    { name: '1 Crônicas (1ch)', id: '1ch' },
-    { name: '2 Crônicas (2ch)', id: '2ch' },
-    { name: 'Esdras (ezr)', id: 'ezr' },
-    { name: 'Neemias (neh)', id: 'neh' },
-    { name: 'Ester (est)', id: 'est' },
-    { name: 'Jó (job)', id: 'job' },
-    { name: 'Salmos (psa)', id: 'psa' },
-    { name: 'Provérbios (pro)', id: 'pro' },
-    { name: 'Eclesiastes (ecc)', id: 'ecc' },
-    { name: 'Cânticos (sng)', id: 'sng' },
-    { name: 'Isaías (isa)', id: 'isa' },
-    { name: 'Jeremias (jer)', id: 'jer' },
-    { name: 'Lamentações (lam)', id: 'lam' },
-    { name: 'Ezequiel (ezk)', id: 'ezk' },
-    { name: 'Daniel (dan)', id: 'dan' },
-    { name: 'Oséias (hos)', id: 'hos' },
-    { name: 'Joel (jol)', id: 'jol' },
-    { name: 'Amós (amo)', id: 'amo' },
-    { name: 'Obadias (oba)', id: 'oba' },
-    { name: 'Jonas (jon)', id: 'jon' },
-    { name: 'Miquéias (mic)', id: 'mic' },
-    { name: 'Naum (nam)', id: 'nam' },
-    { name: 'Habacuque (hab)', id: 'hab' },
-    { name: 'Sofonias (zep)', id: 'zep' },
-    { name: 'Ageu (hag)', id: 'hag' },
-    { name: 'Zacarias (zac)', id: 'zac' },
-    { name: 'Malaquias (mal)', id: 'mal' },
-    { name: 'Mateus (mat)', id: 'mat' },
-    { name: 'Marcos (mrk)', id: 'mrk' },
-    { name: 'Lucas (luk)', id: 'luk' },
-    { name: 'João (jhn)', id: 'jhn' },
-    { name: 'Atos (act)', id: 'act' },
-    { name: 'Romanos (rom)', id: 'rom' },
-    { name: '1 Coríntios (1co)', id: '1co' },
+    { name: 'Gênesis', id: 'gen' },
+    { name: 'Êxodo', id: 'exo' },
+    { name: 'Levítico', id: 'lev' },
+    { name: 'Números', id: 'num' },
+    { name: 'Deuteronômio', id: 'deu' },
+    { name: 'Josué', id: 'jos' },
+    { name: 'Juízes', id: 'jdg' },
+    { name: 'Rute', id: 'rut' },
+    { name: '1 Samuel', id: '1sa' },
+    { name: '2 Samuel', id: '2sa' },
+    { name: '1 Reis', id: '1ki' },
+    { name: '2 Reis', id: '2ki' },
+    { name: '1 Crônicas', id: '1ch' },
+    { name: '2 Crônicas', id: '2ch' },
+    { name: 'Esdras', id: 'ezr' },
+    { name: 'Neemias', id: 'neh' },
+    { name: 'Ester', id: 'est' },
+    { name: 'Jó', id: 'job' },
+    { name: 'Salmos', id: 'psa' },
+    { name: 'Provérbios', id: 'pro' },
+    { name: 'Eclesiastes', id: 'ecc' },
+    { name: 'Cânticos', id: 'sng' },
+    { name: 'Isaías', id: 'isa' },
+    { name: 'Jeremias', id: 'jer' },
+    { name: 'Lamentações', id: 'lam' },
+    { name: 'Ezequiel', id: 'ezk' },
+    { name: 'Daniel', id: 'dan' },
+    { name: 'Oséias', id: 'hos' },
+    { name: 'Joel', id: 'jol' },
+    { name: 'Amós', id: 'amo' },
+    { name: 'Obadias', id: 'oba' },
+    { name: 'Jonas', id: 'jon' },
+    { name: 'Miquéias', id: 'mic' },
+    { name: 'Naum', id: 'nam' },
+    { name: 'Habacuque', id: 'hab' },
+    { name: 'Sofonias', id: 'zep' },
+    { name: 'Ageu', id: 'hag' },
+    { name: 'Zacarias', id: 'zac' },
+    { name: 'Malaquias', id: 'mal' },
+    { name: 'Mateus', id: 'mat' },
+    { name: 'Marcos', id: 'mrk' },
+    { name: 'Lucas', id: 'luk' },
+    { name: 'João', id: 'jhn' },
+    { name: 'Atos', id: 'act' },
+    { name: 'Romanos', id: 'rom' },
+    { name: '1 Coríntios', id: '1co' },
     // Adicione os demais livros aqui
   ]);  
   const [selectedBook, setSelectedBook] = useState('');
@@ -81,12 +81,12 @@ const BibliaConnect = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>BíbliaConnect</Text>
-      <Text style={styles.label}>Lívro</Text>
+      <Text style={styles.label}>Livro</Text>
       <TouchableOpacity
         style={styles.picker}
         onPress={() => {setIsClicked(!isClicked);}}
       >
-        <TextInput style={styles.dropText} placeholder="Escolha um Livro" value={selectedBook} onChangeText={(text) => setSelectedBook(text)}></TextInput>
+        <TextInput style={styles.dropText} placeholder="Escolha um Livro" value={selectedBook} onChangeText={(text) => setSelectedBook(text)} onSubmitEditing={() => {setIsClicked(false);}}></TextInput>
         {isClicked? 
         <Image source={require('../../../assets/dropup.png')} style = {styles.icon}></Image> 
         : 
@@ -95,7 +95,7 @@ const BibliaConnect = () => {
       {isClicked? <View style={styles.dropdownArea}>
         <FlatList data={books} renderItem={({item, index}) =>{
           return(
-            <TouchableOpacity style={styles.bookItem} onPress={() =>{setSelectedBook(item.id); setIsClicked(false);}}>
+            <TouchableOpacity style={styles.bookItem} onPress={() =>{setSelectedBook(item.name); setIsClicked(false);}}>
                 <Text>{item.name}</Text>
             </TouchableOpacity>
           );
