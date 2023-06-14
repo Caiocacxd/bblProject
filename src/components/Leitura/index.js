@@ -75,12 +75,12 @@ const BibliaConnect = () => {
   }, [selectedBook, selectedChapter, selectedVerseNumber]);
 
   const onShare = async () => {
-    const result = await Share.share({message: `Reflexão sobre ${selectedBook} ${selectedChapter}:${selectedVerseNumber}:\n ${reflection}`})
+    const result = await Share.share({message: `Reflexão sobre ${selectedBook} ${selectedChapter}:${selectedVerseNumber}:\n ${reflection} \n\n "${verse}"`})
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>BíbliaConnect</Text>
+      <Text style={styles.title}>Bíblia Connect</Text>
       <Text style={styles.label}>Livro</Text>
       <TouchableOpacity
         style={styles.picker}
@@ -143,19 +143,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 20,
+    backgroundColor: "#FFD700",
   },
   title: {
-    fontSize: 30,
+    fontSize: 45,
     fontWeight: "500",
     marginBottom: 50,
     alignSelf:"center",
+    fontFamily: "Times New Roman",
+    fontStyle: "italic",
+    color: "white",
+    textShadowColor: "#000000",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
   },
   picker: {
     width: "100%",
     height: 40,
     borderRadius: 10,
     borderWidth: 0.5,
-    borderColor: "#8e8e8e",
     alignSelf: "center",
     marginBottom: 20,
     flexDirection: "row",
@@ -163,6 +169,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 10,
     paddingRight: 15,
+    backgroundColor: "white",
   },
   dropText: {
     width:"45%",
@@ -171,27 +178,36 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     height: 40,
-    borderColor: "gray",
+    borderColor: "black",
     borderWidth: 1,
     marginBottom: 20,
     paddingHorizontal: 10,
+    backgroundColor: "white",
   },
   verse: {    
     fontSize: 16,
     marginBottom: 20,
+    fontFamily: "Times New Roman",
+    fontStyle: "italic",
+    color: "black",
+    textShadowColor: "white",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
   },
   textarea: {
     width: "100%",
     height: 100,
-    borderColor: "gray",
     borderWidth: 1,
     marginBottom: 20,
     paddingHorizontal: 10,
     textAlignVertical: "top",
+    backgroundColor: "white",
+    borderColor: "black",
   },
   label: {
     fontSize: 15,
     fontWeight: "bold",
+    borderColor: "#FFA500",
   },
   boxShare:{
     width: "100%",
@@ -199,7 +215,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   shared:{
-    backgroundColor: "#1877F2",
+    backgroundColor: "black",
+    borderColor: "#FFA500",
     borderRadius: 50,
     paddingBottom: 5,
     paddingTop: 5,
@@ -208,6 +225,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontWeight:"bold",
     paddingHorizontal: 30,
+    borderColor: "black",
   },
   icon:{
     width: 20,
@@ -218,17 +236,20 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 10,
     marginBottom: 10,
-    backgroundColor:"#fff",
+    backgroundColor:"white",
+    borderColor:"black",
     elevation: 5,
     alignSelf: "center",
   },
   bookItem:{
-    width: "95%",
+    width: "98%",
     height: 50,
     borderBottomWidth: 0.2,
-    borderBottomColor: "#8e8e8e",
+    borderBottomColor: "black",
     alignSelf: "center",
     justifyContent: "center",
+    backgroundColor: "white",
+    borderColor: "#FFA500",
   },
 });
 
