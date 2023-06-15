@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "bblProject",
+    "name": "BíbliaConnect",
     "slug": "bblProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,21 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
+      },
+      "package": "com.estaciofic.bibliaconnect",
+      "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b2b5e4ff-346a-44b1-8442-1caf15b04edf"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b2b5e4ff-346a-44b1-8442-1caf15b04edf"
     }
   }
 }
