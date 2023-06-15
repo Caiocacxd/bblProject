@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Share, Image, FlatList, ScrollView  } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Share, Image, FlatList, ScrollView, Modal } from 'react-native';
+import styles from "./style";
 
 const BibliaConnect = () => {
   const [verse, setVerse] = useState('');
@@ -57,6 +58,8 @@ const BibliaConnect = () => {
   const [selectedChapter, setSelectedChapter] = useState('1');
   const [selectedVerseNumber, setSelectedVerseNumber] = useState('');
   const [isClicked, setIsClicked] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {
     const fetchVerse = async () => {
@@ -75,7 +78,7 @@ const BibliaConnect = () => {
   }, [selectedBook, selectedChapter, selectedVerseNumber]);
 
   const onShare = async () => {
-    const result = await Share.share({message: `Reflexão sobre ${selectedBook} ${selectedChapter}:${selectedVerseNumber}:\n ${reflection} \n\n "${verse}"`})
+    const result = await Share.share({message: `"${verse}"\n\n${selectedBook} ${selectedChapter}:${selectedVerseNumber}\n\nMinha Reflexão sobre:\n${reflection}\n`})
   };
 
   return (
@@ -95,7 +98,7 @@ const BibliaConnect = () => {
       {isClicked? <View style={styles.dropdownArea}>
         <FlatList data={books} renderItem={({item, index}) =>{
           return(
-            <TouchableOpacity style={styles.bookItem} onPress={() =>{setSelectedBook(item.name); setIsClicked(false);}}>
+            <TouchableOpacity style={styles.bookItem} onPress={() =>{setSelectedBook(item.name); setIsClicked(false); setButtonDisabled(false);}}>
                 <Text>{item.name}</Text>
             </TouchableOpacity>
           );
@@ -118,139 +121,49 @@ const BibliaConnect = () => {
       {selectedBook == "Escolha um Livro"?
         null
         :
-        <ScrollView>
+        <ScrollView style={styles.boxVerse}>
         <Text style={styles.verse}>{verse}</Text>
         </ScrollView>
       }
-      <TextInput
-        placeholder="Reflexão"
-        value={reflection}
-        onChangeText={(text) => setReflection(text)}
-        style={styles.textarea}
-        multiline
-      />
       <View style={styles.boxShare}>
-      <TouchableOpacity style={styles.shared} onPress={onShare}>
-        <Text style={styles.sharedText}>Compartilhar Reflexão</Text>
+      <TouchableOpacity style={styles.shared} disabled={buttonDisabled} onPress={() =>{setModalVisible(true)}}>
+          <Text style={styles.sharedText}>Compartilhar Reflexão</Text>
       </TouchableOpacity>
       </View>
+      
+      <Modal
+        animationType="slide"
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}>
+            <View style={styles.modalElements}>
+              <View style={styles.headerModal}>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
+                <Text style={styles.modalButton}>Voltar</Text>
+              </TouchableOpacity>
+                <Text style={styles.modalTitle}>Escreva sobre</Text>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
+                <Text style={styles.modalButton}>Cancelar</Text>
+              </TouchableOpacity>
+              </View>
+              <ScrollView style={styles.boxVerseModal}>
+                <Text style={styles.verse}>{verse}</Text>
+              </ScrollView>
+              <TextInput
+                  placeholder="Reflexão"
+                  value={reflection}
+                  onChangeText={(text) => setReflection(text)}
+                  style={styles.textarea}
+                  multiline
+              />
+              <View style={styles.boxShare}>
+                <TouchableOpacity style={styles.shared} onPress={onShare}>
+                    <Text style={styles.sharedText}>Compartilhar Reflexão</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+      </Modal>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-    backgroundColor: "#FFD700",
-  },
-  title: {
-    fontSize: 45,
-    fontWeight: "500",
-    marginBottom: 50,
-    alignSelf:"center",
-    fontFamily: "Times New Roman",
-    fontStyle: "italic",
-    color: "white",
-    textShadowColor: "#000000",
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-  },
-  picker: {
-    width: "100%",
-    height: 40,
-    borderRadius: 10,
-    borderWidth: 0.5,
-    alignSelf: "center",
-    marginBottom: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingLeft: 10,
-    paddingRight: 15,
-    backgroundColor: "white",
-  },
-  dropText: {
-    width:"45%",
-    height: 30,
-  },
-  input: {
-    width: "100%",
-    height: 40,
-    borderColor: "black",
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-    backgroundColor: "white",
-  },
-  verse: {    
-    fontSize: 16,
-    marginBottom: 20,
-    fontFamily: "Times New Roman",
-    fontStyle: "italic",
-    color: "black",
-    textShadowColor: "white",
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-  },
-  textarea: {
-    width: "100%",
-    height: 100,
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-    textAlignVertical: "top",
-    backgroundColor: "white",
-    borderColor: "black",
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: "bold",
-    borderColor: "#FFA500",
-  },
-  boxShare:{
-    width: "100%",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  shared:{
-    backgroundColor: "black",
-    borderColor: "#FFA500",
-    borderRadius: 50,
-    paddingBottom: 5,
-    paddingTop: 5,
-  },
-  sharedText:{
-    color: "#ffffff",
-    fontWeight:"bold",
-    paddingHorizontal: 30,
-    borderColor: "black",
-  },
-  icon:{
-    width: 20,
-    height: 20,
-  },
-  dropdownArea:{
-    width: "100%",
-    height: 300,
-    borderRadius: 10,
-    marginBottom: 10,
-    backgroundColor:"white",
-    borderColor:"black",
-    elevation: 5,
-    alignSelf: "center",
-  },
-  bookItem:{
-    width: "98%",
-    height: 50,
-    borderBottomWidth: 0.2,
-    borderBottomColor: "black",
-    alignSelf: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
-    borderColor: "#FFA500",
-  },
-});
 
 export default BibliaConnect;

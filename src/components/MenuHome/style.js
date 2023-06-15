@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         marginTop: 20,
         rowGap: 40, // margin: 30 (tem efeito parecido, mas muito maior)
-        fontFamily: "Times New Roman",
+        //fontFamily: "Times New Roman",
         fontStyle: "italic",
         color: "white",
         textShadowColor: "#000000",

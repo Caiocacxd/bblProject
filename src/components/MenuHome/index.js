@@ -8,8 +8,8 @@ export default function MenuHome({navigation: {navigate}}){
         <View style={styles.boxMenu}>
             <Title/>
             <TouchableOpacity style={styles.boxBotoes} onPress={() => navigate('Leitura')}><Text style={styles.textoLer}>Ler a Bíblia</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.boxBotoes} onPress={() => nagivate('Sobre')}><Text style={styles.textoLer}>Sobre</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.boxBotoes} onPress={() => nagivate('Contatos')}><Text style={styles.textoLer}>Contato</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.boxBotoes} onPress={() => navigate('Sobre')}><Text style={styles.textoLer}>Sobre</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.boxBotoes} onPress={() => navigate('Contatos')}><Text style={styles.textoLer}>Contato</Text></TouchableOpacity>
             <Footer/>
         </View>
     );

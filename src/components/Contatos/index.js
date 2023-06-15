@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
-    fontFamily: "Times New Roman",
+    //fontFamily: "Times New Roman",
     fontStyle: "italic",
     color: "white",
     textShadowColor: "#000000",

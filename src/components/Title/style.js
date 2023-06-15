@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
     textTitle: {
         color:"#36D2EE",
         fontSize: 40,
-        fontWeight:"900",
+        fontWeight:"bold",
         rowGap: 40, // margin: 30 (tem efeito parecido, mas muito maior)
-        fontFamily: "Times New Roman",
+        //fontFamily: "Times New Roman",
         fontStyle: "italic",
         color: "white",
         textShadowColor: "#000000",
