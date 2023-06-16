@@ -6,7 +6,7 @@ const EquipeScreen = () => {
     { nome: 'Marcos Vinicio Lima', email: 'viniciolimaprivado@gmail.com' },
     { nome: 'Caio de Abreu Costa ', email: 'caio-cac@hotmail.com' },
     { nome: 'Antônio Magraiver Mesquita de Sousa ', email: 'magraivermesquita@gmail.com' },
-    { nome: 'Samuel Cláudio Serpa', email: 'Samuel.C.Serpa@gmail.com' },
+    { nome: 'Samuel Cláudio Serpa', email: 'samuelclaudio2002@gmail.com' },
   ];
 
   return (
